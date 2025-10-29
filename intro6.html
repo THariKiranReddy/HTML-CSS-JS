@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body{
+             border: 1px solid black;
+              box-shadow:rgb(38, 57, 77) 0px 20px 30px -10px;
+            padding:20px;
+            width: 500px;
+            height: 600px;
+        }
+
+        h1{
+            text-align: center;
+        }
+        input[type="submit"]{
+           display: block;
+           margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <h1><b>Registration Form</b></h1>
+        <label for="Name">Name:</label>
+        <input type="text" name="name" placeholder="Enter Full Name">
+        <br><br>
+        <label for="Email">Email:</label>
+        <input type="text" name="email" placeholder="Enter Email" required>
+        <br><br>
+        <label for="Password">User's Password:</label>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <br><br>
+        <label for="Confirm_password">Confirm_password:</label>
+        <input type="password" name="password" placeholder="Confirm your password" minlength="20" maxlength="20" required>
+        <br><br>
+        <label for="Birth Date">Birth Date</label>
+        <input type="date" value="date" required min="2017-01-01" max="2025-01-01">
+        <br><br>
+        <label for="Gender">Choose Your Gender:</label>
+        <br><br>
+        <select>
+            <option value="Select Gender">SELECT GENDER</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+        <br><br>
+        <label for="Subscription">Type of Subscription:</label>
+        <br><br>
+        <input type="radio" name="Subscription">Free
+        <input type="radio" name="Subscription">Basic
+        <input type="radio" name="Subscription">Premium
+        <br><br>
+        <label for="hobbies">Hobbies:</label>
+        <br><br>
+        <input type="checkbox" name="hobbies" value="Reading">Reading
+        <input type="checkbox" name="hobbies" value="Sports">Sports
+        <input type="checkbox" name="hobbies" value="Traveling">Traveling
+        <input type="checkbox" name="hobbies" value="Coding">Coding
+        <br><br>
+        <label for="file_upload">Upload correct File:</label>
+        <input type="file" accept="image/*" required>
+        <br><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

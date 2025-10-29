@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body{
+            border: 1px solid black;
+             box-shadow:rgb(38, 57, 77) 0px 20px 30px -10px;
+            width: 800px;
+            height:1200px;
+            margin:auto;
+        }
+         #foot>div{
+            display:flex;
+            justify-content: space-evenly;
+        }
+        form{
+            padding: 30px;
+        }
+        button{
+           display: block;
+           margin:auto;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form action="#">
+        <h1><b>Feedback Form</b></h1>
+        <label for="Name">Name:</label>
+        <input type="text" name="name" placeholder="Enter Full Name">
+        <br><br>
+        <label for="Email">Email:</label>
+        <input type="text" name="email" placeholder="Enter Email" required>
+        <br><br>
+        <label for="opinion">Enter feedback</label>
+        <textarea name="user-opinion" id="comment">Enter feedback here</textarea>
+        <br><br>
+        <label for="rating">Rate the service</label>
+        <input type="range" step="10" max="100" min="0" list="value">
+        <datalist id="value">
+            <option value="0" label="0">0</option>
+            <option value="25" label="25">25</option>
+            <option value="50" label="50">50</option>
+            <option value="75" label="75">75</option>
+            <option value="100" label="100">100</option>
+        </datalist>
+        <br><br>
+        <label for="feedback">Give your Feedback:</label>
+        <br><br>
+        <input type="radio" name="Feedback" value="Compliment">Compliment
+        <br><br>
+        <input type="radio" name="Feedback" value="complain">complain
+          <br><br>
+        <input type="radio" name="Feedback" value="suggestion">suggestion
+        <br><br>
+        <input type ="checkbox" name="agree_policy" required>Agree Policy
+        <br><br>
+        <a href="#foot">Check the policy once</a>
+        <br><br>
+        <button type="submit">submit</button>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident repellat dolorum minima itaque deleniti quibusdam expedita alias quidem nobis! Similique ad laboriosam est facilis corporis beatae itaque fuga esse quae!
+        Odio porro hic error explicabo dolorum rerum asperiores earum ducimus! Tempora tempore molestias neque maxime totam fugit dignissimos voluptatibus at, excepturi magnam. Mollitia non fugiat et minus dolore! Et, veniam?
+        Vero in assumenda, a est ad fugit dolorum debitis molestiae. Molestiae nisi dolores dolor officiis doloremque, minus eveniet labore ut quam. Cupiditate ex sint ut nesciunt, praesentium eum adipisci debitis?
+        Corporis at sapiente ex possimus itaque tempora recusandae! Quasi, dolor expedita autem repellendus deserunt nisi aspernatur esse a ullam, qui natus! Velit iste deleniti excepturi voluptas itaque incidunt eos assumenda.
+        Molestiae illum animi nam, tempore commodi voluptas ducimus odit laudantium nisi perspiciatis doloribus. Quibusdam neque deserunt sapiente! Ullam quasi eum vel magnam culpa sint maxime at quidem corrupti, fugit officia!
+        Itaque animi soluta, exercitationem et, totam tempora laboriosam vel placeat officiis fugiat beatae praesentium sint sapiente veritatis. Maxime incidunt, ut alias doloremque veniam dignissimos magni natus. Soluta sit perferendis temporibus.
+        Quam sint dolorum et quos officiis, necessitatibus, velit aliquid, facere itaque quae numquam possimus autem quas! Laudantium nemo quibusdam vero, quae, delectus illum consequuntur corrupti saepe, voluptatum minima quaerat quia!
+        Incidunt magni obcaecati nobis fugit neque culpa placeat quasi, ea alias excepturi corrupti et dicta repellendus enim dignissimos commodi aut architecto perspiciatis vitae adipisci iusto necessitatibus quia eligendi odit! Quod.
+        Dicta odio aperiam itaque ad possimus eos quo, accusantium inventore impedit asperiores laudantium. Quisquam debitis atque, repellendus, eveniet molestiae consectetur ipsum delectus enim nam inventore quod deserunt omnis, velit fugiat.
+        Voluptatibus ullam odio laboriosam quisquam voluptas, nam dignissimos. Tempora laborum corporis provident, quaerat dignissimos magnam quam ducimus porro at sapiente praesentium magni voluptate quibusdam doloribus nobis maxime beatae officia veritatis?</p>
+        <br><br>
+        <footer id="foot">
+            <div>
+                <p>about</p>
+                <p>Manager</p>
+                <p>Policies and agreements</p>
+            </div>
+        </footer>
+    
+
+
+    </form>
+</body>
+</html>
