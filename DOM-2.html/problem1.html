@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input id="num1" type="number" placeholder="Enter num1">
+   <input id="num2" type="number" placeholder="Enter num2">
+   <p></p> 
+   <button>Click here to find the exponent!</button>
+</body>
+</html>
+<script>
+    document.querySelector("button").addEventListener("click",function(){
+        let num1=parseInt(document.querySelector("#num1").value);
+    let num2=parseInt(document.querySelector("#num2").value);
+    let result=1;
+    for(let i=0;i<num2;i++){
+       result=result*num1;
+    }
+    document.querySelector("p").innerText=result;
+
+    });
+</script>
