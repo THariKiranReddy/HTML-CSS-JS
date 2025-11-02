@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="links">
+        <div><a href="./index.html">Home</a></div>
+        <div><a href="./applied.html">Applied for job</a></div>
+        <div><a href="./Bookmark.html">Bookmarks</a></div>
+    </div>
+    <form id="form">
+        <h2> Enter your application details</h2>
+        <input type="text" id="name" placeholder="Enter your name">
+        <input type="email" id="email" placeholder="Enter your email">
+        <select id="role">
+            <option value="fsd">fsd</option>
+            <option value="backend">backend</option>
+            <option value="frontend">frontend</option>
+        </select>
+        <input type="number" id="number" placeholder="Enter your expected salary">
+        <input type="submit" id="submit" value="submit">
+
+    </form>
+</body>
+</html>
+<script>
+    document.getElementById("form").addEventListener("submit",jobSubmit);
+    let jobArr;
+    if(localStorage.getItem("JobList")!==null){
+        jobArr=JSON.parse(localStorage.getItem("JobList"));
+    }
+    else{
+        jobArr=[];
+    }
+    function jobSubmit(){
+        event.preventDefault();
+        let jobObj={
+            personName:document.getElementById("name").value,
+            personEmail:document.getElementById("email").value,
+            personSalary:document.getElementById("number").value,
+            personRole:document.getElementById("role").value
+        };
+        jobArr.push(jobObj);
+        localStorage.setItem("JobList",JSON.stringify(jobArr));
+        window.location.href="applied.html";
+
+    }
+</script>

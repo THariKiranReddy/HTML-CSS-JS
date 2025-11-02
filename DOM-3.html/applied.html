@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="links">
+        <div><a href="./index.html">Home</a></div>
+        <div><a href="./applied.html">Applied for job</a></div>
+        <div><a href="./Bookmark.html">Bookmarks</a></div>
+    </div>
+    <select id="filterddata" onchange="filterData()">
+        <option value="">filter category</option>
+        <option value="fsd">Fsd</option>
+        <option value="backend">Backend</option>
+        <option value="frontend">Frontend</option>
+    </select>
+    <select id="sortvalue" onchange="sortSalary()">
+        <option value="">filter salary</option>
+        <option value="HTL">HTL</option>
+        <option value="LTH">LTH</option>
+    </select>
+    <select id="sortbyname" onchange="sortByName()">
+        <option value="">sort by name</option>
+        <option value="asc">asc</option>
+        <option value="dsc">dsc</option>
+    </select>
+    <table border="1">
+        <thead>
+            <tr>
+            <th>personName</th>
+            <th>personEmail</th>
+            <th>personRole</th>
+            <th>personSalary</th>
+            <th>BookMark</th>
+            </tr>
+        </thead>
+            <tbody>
+
+            </tbody>
+    </table>
+    
+</body>
+</html>
+<script>
+    let app=JSON.parse(localStorage.getItem("JobList"));
+    displayData(app);
+    let bookMarkArr;
+    if(localStorage.getItem("bookmark")!==null){
+        bookMarkArr=JSON.parse(localStorage.getItem("bookmark"));
+    }
+    else{
+        bookMarkArr=[];
+    }
+    function BookMark(elem){ 
+        bookMarkArr.push(elem);
+        localStorage.setItem("bookmark",JSON.stringify(bookMarkArr));
+    }
+    function filterData(){
+        let selectedValue=document.getElementById("filterddata").value;
+        let filterdArray=app.filter(function(elem){
+            return elem.personRole===selectedValue;
+        });
+    document.querySelector("tbody").innerHTML="";
+    displayData(filterdArray);
+    }
+    function displayData(data){
+    data.forEach(function(elem){
+    let tr=document.createElement("tr");
+    let td1=document.createElement("td");
+    td1.innerText=elem.personName;
+    let td2=document.createElement("td");
+    td2.innerText=elem.personEmail;
+    let td3=document.createElement("td");
+    td3.innerText=elem.personRole;
+    let td4=document.createElement("td");
+    td4.innerText=elem.personSalary;
+    let td5=document.createElement("td");
+    td5.innerText="Bookmark";
+    td5.addEventListener("click",function(){
+        BookMark(elem);
+    });
+    tr.append(td1,td2,td3,td4,td5);
+    document.querySelector("tbody").append(tr);
+    });
+    }
+    function sortSalary(){
+       document.querySelector("tbody").innerHTML=""; 
+        let selectValue=document.querySelector("#sortvalue").value;
+        if(selectValue==="HTL"){
+            app.sort(function(a,b){
+                return b.personSalary-a.personSalary;
+            });
+            displayData(app);
+        }
+        if(selectValue==="LTH"){
+            app.sort(function(a,b){
+                return a.personSalary-b.personSalary;
+            });
+            displayData(app);
+        }
+    }
+    function sortByName(){
+         document.querySelector("tbody").innerHTML=""; 
+        let selectvalue=document.querySelector("#sortbyname").value;
+        if(selectvalue==="asc"){
+            app.sort(function(a,b){
+                 let x=a.personName.toUpperCase();
+            let y=b.personName.toUpperCase();
+            if(x>y){
+                return 1;
+            }
+            if(x<y){
+                return -1;
+            }
+            return 0;
+        });
+        displayData(app);
+    }
+    if(selectvalue==="dsc"){
+            app.sort(function(a,b){
+                 let x=a.personName.toUpperCase();
+            let y=b.personName.toUpperCase();
+            if(x>y){
+                return -1;
+            }
+            if(x<y){
+                return 1;
+            }
+            return 0;
+            });
+    displayData(app);
+
+        }  
+    }
+</script>
