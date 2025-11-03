@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <button> Ring Bell </button>
+       <button id="gen">Show Quote in console</button>
+ <p id="quote">Talk is cheap Show me the code</p>
+ <h1>School Application</h1>
+    <p>Enter Your name and gender to apply for school</p>
+    <h2 id="display">Display entered name and gender here</h2>
+    <hr>
+    <input type="text" id ="name" placeholder="Enter your name">
+    <select id="gender">
+       <option value="Male">Male</option>
+       <option value="Female">Female</option>
+    </select>
+    <button id="tet">Apply</button>
+</body>
+</html>
+<script>
+    document.querySelector("button").addEventListener("click",function(){
+        console.log("please open the door");
+    });
+     document.querySelector("#gen").addEventListener("click",function(){
+      console.log(document.querySelector("#quote").innerHTML);
+    });
+     document.querySelector("#tet").addEventListener("click",function(){
+        let name=document.querySelector("#name").value;
+        let gen=document.querySelector("#gender").value;
+        document.querySelector("h2").innerText=name+","+gen;
+    })
+</script>

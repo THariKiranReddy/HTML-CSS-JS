@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="fr" placeholder="enter the 1st value" value="">
+    <input type="number" id="sr" placeholder="enter the 2nd value" value="">
+    <button onclick="addNumber()">Add</button>
+    <button onclick="subNumber()">Subtract</button>
+    <button onclick="mulNumber()">Multiply</button>
+    <button onclick="divNumber()">Divide</button>
+</body>
+</html>
+<script>
+    function addNumber(){
+    let num1=parseInt(document.getElementById("fr").value);
+    let num2=parseInt(document.getElementById("sr").value);
+    let sum=num1+num2;
+    alert(sum);
+    }
+    function subNumber(){
+    let num1=parseInt(document.getElementById("fr").value);
+    let num2=parseInt(document.getElementById("sr").value);
+    let sub=num1-num2;
+    alert(sub);  
+    }
+    function mulNumber(){
+    let num1=parseInt(document.getElementById("fr").value);
+    let num2=parseInt(document.getElementById("sr").value);
+    let mul=num1*num2;
+    alert(mul);
+    }
+    function divNumber(){
+    let num1=parseInt(document.getElementById("fr").value);
+    let num2=parseInt(document.getElementById("sr").value);
+    let div=num1/num2;
+    alert(div);
+    }
+</script>
