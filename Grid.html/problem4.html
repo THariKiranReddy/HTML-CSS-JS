@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width: 500px;
+            display:grid;
+            grid-template-columns: repeat(3,100px);
+            grid-template-rows: repeat(3,100px);
+            gap:20px;
+            grid-template-areas: 
+            "ab cd cd ef"
+            "gh  gh hi jk"
+            "lm no pq pq"
+        }
+        #container>div:nth-child(1){
+            background-color: green;
+            grid-area:ab;
+        }
+         #container>div:nth-child(2){
+            background-color: green;
+            grid-area:cd;
+        }
+         #container>div:nth-child(3){
+            background-color: green;
+            grid-area:ef;
+        }
+         #container>div:nth-child(4){
+            background-color: green;
+            grid-area:gh;
+        }
+         #container>div:nth-child(5){
+            background-color: green;
+            grid-area:hi;
+        }
+         #container>div:nth-child(6){
+            background-color: green;
+            grid-area:jk;
+        }
+         #container>div:nth-child(7){
+            background-color: green;
+            grid-area:lm;
+        }
+         #container>div:nth-child(8){
+            background-color: green;
+            grid-area:no;
+        }
+         #container>div:nth-child(9){
+            background-color: green;
+            grid-area:pq;
+        }
+        #container>div:nth-child(10){
+            background-color: green;
+            grid-area:pq;
+        }
+        #container>div:nth-child(11){
+            background-color: green;
+            grid-area:pq;
+        }
+        #container>div:nth-child(12){
+            background-color: green;
+            grid-area:pq;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            border:1px solid black;
+            padding: 20px;
+            display: grid;
+            width:450px;
+            grid-template-columns: 100px 100px 100px 100px;
+            grid-template-rows: 50px 50px ;
+            grid-template-areas: 
+            "cb cb bc db "
+            "gd eb bc db";
+            gap:10px;
+        }
+        #container>div{
+            background-color: grey;
+            border-radius: 5px;
+            padding: 20px;
+            color: white;
+        }
+        #container>div:nth-child(1){
+            grid-area: cb;
+        }
+         #container>div:nth-child(2){
+            grid-area: bc;
+        }
+         #container>div:nth-child(3){
+            grid-area: gd;
+        }
+         #container>div:nth-child(4){
+            grid-area: eb;
+        }
+         #container>div:nth-child(5){
+            grid-area: db;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+        <div>E</div>
+    </div>
+</body>
+</html>
