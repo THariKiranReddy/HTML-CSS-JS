@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        color:white;
+    }
+    body a{
+        color:white;
+    }
+    footer img{
+        width:20px;
+        height:20px;
+        margin-top:15px;
+    }
+    #b img{
+       display: block;
+       margin: auto;
+       padding: 20px;
+    }
+    #e{
+        display: flex;
+        gap:20px;
+       
+    }
+    #e>div:nth-child(1)::before {
+    content: " \00A9 2025 Microsoft";
+    font-size: 16px;
+    color: white;
+    }
+    #d{
+            display:flex;
+            justify-content: space-between;
+            gap:10px;
+    }
+    footer{
+            display:flex;
+            justify-content: space-between;
+            background-color: black;
+            align-items: center;
+            padding: 20px;
+    }
+     #c{
+            display:flex;
+            justify-content: space-around;
+            background-color: skyblue;
+    }
+    @media all and (min-width:1024px){
+        #b{
+            display:grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(1,fr);
+            background-color: blue;
+        }
+    }
+    @media all and (min-width:768px) and (max-width:1023px){
+        #b{
+            display: flex;
+            flex-flow: column-reverse;
+            background-color: blue;
+        }
+    }
+</style>
+<body>
+    <div id="z">
+        <div id="b">
+        <div id="m">
+        <img src="https://www.bing.com/th/id/OIP.rFvaFPTvHCxIYDVlFFf9IQHaHa?w=215&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2">
+        </div>
+    <div id="c">
+        <div>
+            <div><h2>Shop</h2></div>
+            <div><p>Gift cards</p></div>
+            <div><p>Books</p></div>
+            <div><p>Pens</p></div>
+            <div><p>Balls</p></div>
+            <div><p>Bags</p></div>
+            <div><p>Bats</p></div>
+            <div><p>Grocery</p></div>
+        </div>
+        <div>
+            <div><h2>Sell</h2></div>
+            <div><P>Teams</P></div>
+            <div><P>Forms</P></div>
+            <div><P>Land</P></div>
+            <div><P>Place</P></div>
+        </div>
+        <div>
+            <div><h2>About</h2></div>
+            <div><p>Policies</p></div>
+            <div><p>Carriers</p></div>
+            <div><p>Placements</p></div>
+            <div><p>Jobs</p></div>
+            <div><p>Salary</p></div>
+            <div><p>Profits</p></div>
+            <div><p>Standards</p></div>
+        </div>
+        <div>
+            <div><h2>Shop</h2></div>
+            <div><p>Gift cards</p></div>
+            <div><p>Books</p></div>
+            <div><p>Pens</p></div>
+            <div><p>Balls</p></div>
+            <div><p>Bags</p></div>
+            <div><p>Bats</p></div>
+            <div><p>Grocery</p></div>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <div id="d">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.YhgqIRCir24Kr0ZfLIgUCgHaHa?w=173&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7">
+            <p>India</p>
+        <p>| English(IN) |</p>
+        <p>$INR</p>
+
+        </div>
+        <div id="e">
+            <diV></diV>
+            <div><a href="#">terms of use</a></div>
+            <div><a href="#">privacy</a></div>
+            <div><a href="#">intrested-based-adds</a></div>
+            <div><a href="#">Local-shops</a></div>
+            <div><a href="#">Regions</a></div>
+        </div>
+    </footer>
+
+    </div>
+</body>
+</html>
