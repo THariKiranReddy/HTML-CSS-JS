@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body>div{
+            width:200px;
+            height:50px;
+            display: flex;
+            justify-content: space-between;
+            
+        }
+    </style>
+</head>
+<body>
+  <div>
+    <div id="winner"></div>
+    <div id="member-1">1</div>
+    <div id="member-2">6</div>
+    <div id="member-3">3</div>
+
+  </div>
+    <button onclick="rollDice()" id="roll">ROLL THE DICE</button>
+</body>
+</html>
+<script>
+    let id;
+    function rollDice(){
+      let winner="";
+        id=setTimeout(function(){
+           let mem= document.querySelector("#member-1");
+           mem.innerHTML=6;
+           let sem=document.querySelector("#member-2");
+           sem.innerHTML=6;
+           let nem=document.querySelector("#member-3");
+           nem.innerHTML=4;
+          let val1=parseInt(mem.innerHTML);
+          let val2=parseInt(sem.innerHTML);   
+          let val3=parseInt(nem.innerHTML);
+          let high,mid,low;
+          if(val1>=val2 && val1>=val3){
+            high=val1;
+            if(val2>=val3){
+                mid=val2;
+                low=val3;
+            }
+            else{
+                mid=val3;
+                low=val2;
+            }
+          }
+          else if(val2>=val1 && val2>=val3){
+            high=val2;
+            if(val1>=val3){
+                mid=val1;
+            }
+            else{
+                mid=val3;
+                low=val1;
+            }
+          }
+          else{
+                high=val3;
+                if(val1>=val2){
+                    mid=val1;
+                    low=val2;
+                }
+                else{
+                    mid=val2;
+                    low=val1;
+                }
+          }
+          if(val1===high){
+            mem.style.backgroundColor="green";
+          }
+          else if(val1===mid){
+            mem.style.backgroundColor="yellow";
+          }
+          else if(val1===low){
+            mem.style.backgroundColor="red";
+          }
+          if(val2===high){
+            sem.style.backgroundColor="green";
+          }
+          else if(val2===mid){
+            sem.style.backgroundColor="yellow";
+          }
+          else if(val2===low){
+            sem.style.backgroundColor="red";
+          }
+          if(val3===high){
+            nem.style.backgroundColor="green";
+          }
+          else if(val3===mid){
+            nem.style.backgroundColor="yellow";
+          }
+          else if(val3===low){
+            nem.style.backgroundColor="red";
+          }
+          if(val1===high){
+            winner="mem A is winner";
+          }
+          else if(val2===high){
+            winner="mem B is the winner";
+          }
+          else{
+            winner="mem C is the winner";
+          }
+          document.querySelector("#winner").innerHTML=winner;
+
+
+        },1000);
+    }
+</script>
