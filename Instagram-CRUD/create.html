@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create page</title>
+</head>
+<body>
+    <!-- adding post -->
+     <a href="./index.html">
+        <button>HOME</button>
+     </a>
+    <div id="add-post">
+        <h1>Add post</h1>
+    <input type="text" id="title" placeholder="title">
+    <input type="file" id="image" placeholder="add the file" accept="image/*" onchange="handleChange(event)">
+    <button id="submit" onclick="addPost()">submit</button>
+    </div>
+    <!-- update the post -->
+    <div id="edit">
+        <h1>edit post</h1>
+        <input type="text" id="update_id" placeholder="enter id">
+    <input type="text" id="update_title" placeholder="title">
+    <input type="file" placeholder="select file" id="update_image" accept="image/*" onclick="handleUpdatedChange(event)">
+    <button id="update" onclick="update()">update</button>
+
+    </div>
+    <!-- replace post  -->
+     <div id="replace">
+        <h1>replace post</h1>
+    <input type="text" id="replace_id" placeholder="enter id">
+    <input type="text" id="replace_title" placeholder="enter new title" />
+    <button id="replace-post" onclick="replacePost()">replace</button>
+
+     </div>
+     <!-- delete post -->
+      <div id="remove">
+        <h1>delete post</h1>
+    <input type="text" id="delete_id" placeholder="enter id">
+    <button id="delete" onclick="deletePost()">delete</button>
+
+      </div>
+</body> 
+</html>
+<script src="./create.js"></script>
