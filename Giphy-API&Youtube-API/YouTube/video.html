@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video</title>
+    <style>
+            #content_div{
+            display: flex;
+            flex-wrap:wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap:10px;
+            padding: 10px;
+            
+        }
+        #video_div,#content_div{
+             width:1100px;
+        }
+        #side_div{
+            width:300px;
+            display:flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: flex-end;
+            gap:10px;
+            padding: 10px;
+        }
+        #main_container{
+            display: flex;
+            justify-content: space-between;
+            align-items:flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_container">
+        <div id="video_content">
+             <div id="video_div"></div>
+             <div id="content_div"></div>
+        </div>
+    <div id="side_div"></div>
+</div>
+</body>
+</html>
+<script>
+    let APIKEY="AIzaSyC0AkmZ5ZroSK43aIo2ylmabo3zUr_uG6k";
+    function ShowVideo(){
+         let video=JSON.parse(localStorage.getItem("clicked_video"));
+         let div=document.getElementById("video_div");
+         let iframe=document.createElement("iframe");
+         iframe.src=`https://www.youtube.com/embed/${video.videoId}`;
+         iframe.width="100%";
+         iframe.height="600px";
+         iframe.setAttribute("allowfullscreen",true);
+         div.append(iframe);
+       let storedVideos = JSON.parse(localStorage.getItem("videos"));
+       downVideo(storedVideos.items);
+       sideBar(storedVideos.items);
+console.log(storedVideos.items); 
+    }
+        function downVideo(array){
+             let div=document.getElementById("content_div");
+            array.forEach((element)=>{
+                 let div=document.createElement("div");
+            const {snippet,id:{videoId}}=element;
+            let image=document.createElement("img");
+            image.src=snippet.thumbnails.medium.url;
+            let name=document.createElement("h4");
+            name.innerText=snippet.title;
+            name.style="width:300px;height:50px";
+            div.append(image,name);
+            content_div.append(div);
+        });
+    }
+        function sideBar(array){
+            let side_div=document.getElementById("side_div");
+            let div=document.createElement("div");
+            div.id="side";
+            array.forEach((element)=>{
+                 let div=document.createElement("div");
+            const {snippet,id:{videoId}}=element;
+            let image=document.createElement("img");
+            image.src=snippet.thumbnails.medium.url;
+            let name=document.createElement("h4");
+            name.innerText=snippet.title;
+            name.style="width:100%;height:50px;text-size:50px";
+            div.append(image,name);
+            side_div.append(div);
+            
+        });
+        }
+    ShowVideo();
+   
+
+</script>
