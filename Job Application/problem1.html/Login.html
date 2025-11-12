@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            border:1px solid black;
+            width:200px;
+            height: 200px;
+            margin: auto;
+            margin-top: 100px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+    <h1>Login Page</h1>
+    <input type="text" id="name" placeholder="Enter your name">
+    <input type="email" id="email" placeholder="Enter your email">
+    <input type="submit">
+
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit",loginDetails);
+    let loginArr;
+    if(localStorage.getItem("logindata")!==null){
+        loginArr=JSON.parse(localStorage.getItem("logindata"));
+    }
+    else{
+        loginArr=[];
+    }
+    function loginDetails(){
+         event.preventDefault();
+        let loginObj={
+        personName:form.name.value,
+        personEmail:form.email.value
+    };
+    loginArr.push(loginObj);
+    localStorage.setItem("logindata",JSON.stringify(loginArr));
+    let userFound=loginArr.find(user=>user.personEmail===inputEmail);
+    if(userFound){
+        localStorage.setItem("authenticated", "true");
+        localStorage.setItem("currentuser",JSON.stringify(userFound));
+        window.location.href="index.html";
+    }
+    else{
+        alert("user not found,please signup first.");
+    }
+    }
+</script>
