@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #search{
+            display:flex;
+            gap:10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="search">
+        <h1>Search</h1>
+    <input style="width: 200px;height:30px;margin-top:20px" type="text" id="enter" placeholder="Enter to Search" oninput="onSearchInput()">
+
+    </div>
+     <div id="product-container"></div>
+</body>
+</html>
+<script>
+    let data=[];
+    async function Products(){
+        try{
+        let products=await fetch('https://fakestoreapi.com/products');
+        data=await products.json();
+        renderProducts(data);
+
+        }
+        catch(err){
+            console.log("Error",err);
+        }
+    }
+    function renderProducts(data){
+        let product=document.createElement("div");
+        product.id="product";
+        product.style="width:1500px;height:auto;display:flex;flex-wrap:wrap;gap:20px;justify-content:flex-start;align-items:center;margin-left:50px;margin-top:20px";
+        data.forEach(ele => {
+            let card=document.createElement("div");
+        card.id="card";
+        card.innerHTML=`
+        <img style="width:200px;height:200px;" src="${ele.image}"/>
+        <h3>${ele.category}</h3>
+        <h3>Rating:${ele.rating.rate}</h3>
+        <h3>${ele.price}</h3>
+        `;
+        console.log(ele.category);
+        card.style="width:200px;height:auto;border-color:#ccc;box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);padding:10px;";
+        product.append(card);
+        });
+        document.querySelector("#product-container").append(product);
+    }
+        function debouncing(FetchData,delay){
+            let timeOutId;
+            return function(arg){
+                clearTimeout(timeOutId);
+                 timeOutId=setTimeout(()=>{
+                    FetchData(arg);
+                },delay);
+            }
+        }
+        function FetchData(query){
+            console.log(query);
+        }
+        let debouncedArray=debouncing(FetchData,2000);
+        function onSearchInput(ele){
+            let query=document.querySelector("#enter").value.toLowerCase();
+            let filterArray=data.filter(Element=>Element.category.toLowerCase().includes(query));
+            document.querySelector("#product-container").innerHTML=""
+            renderProducts(filterArray);
+            debouncedArray(query);
+        }
+    Products();
+</script>
