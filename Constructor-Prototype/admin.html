@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <style>
+       img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+  }
+  .product-class {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+  }
+  #product-list{
+    width:500px;
+    margin-top: 20px;
+  }
+    </style>
+</head>
+<body>
+    <h1>🛒 Seller Admin Dashboard</h1>
+
+  <form id="product-form">
+    <input type="text" placeholder="Product Name" id="name" required>
+    <input type="text" placeholder="Category" id="category" required>
+    <input type="url" placeholder="Image URL" id="image" required>
+    <input type="number" placeholder="Price" id="price" required>
+    <select id="gender">
+      <option value="Unisex">Unisex</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <button type="submit" id="Submit">Add Product</button>
+  </form>
+
+  <div class="product-list" id="product-list">
+    <!-- Products will be rendered here -->
+  </div>
+</body>
+</html>
+<script>
+    function Product(name,category,image,price,gender,sold=false){
+        this.name=name;
+        this.category=category;
+        this.image=image;
+        this.price=price;
+        this.gender=gender;
+        this.sold=sold;
+    }
+    const form=document.getElementById("product-form");
+    const list=document.getElementById("product-list");
+    function renderItems(products){
+      list.innerHTML="";
+        products.forEach(ele => {
+            let card=document.createElement("div");
+            card.class="product-class";
+            card.id="card";
+            card.innerHTML=`
+            <img src="${ele.image}"/>
+            <h1>${ele.name}</h1>
+            <p>${ele.category}</p>
+            <p>${ele.gender}</p>
+            <p>${ele.price}</p>
+            <p>${ele.sold}</p>
+            `;
+          list.append(card);
+
+
+        });
+        }
+        form.addEventListener("submit",function(e){
+          e.preventDefault();
+          const name=document.querySelector("#name").value;
+          const category=document.querySelector("#category").value;
+          //const item=document.querySelector("#item").value;
+          const price=document.querySelector("#price").value;
+          const image=document.querySelector("#image").value;
+          const gender=document.querySelector("#gender").value;
+          const newProduct=new Product(name,category,image,price,gender);
+          let products=JSON.parse(localStorage.getItem("products")) || [];
+          products.push(newProduct);
+          localStorage.setItem("products",JSON.stringify(products));
+          renderItems(products);
+          form.reset();
+        });
+</script>

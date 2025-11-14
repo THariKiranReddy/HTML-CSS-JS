@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        #product-list div{
+            border:1px solid black;
+            height: 300px;
+            width: 200px;
+            padding: 10px;
+            border-radius: 5px;
+            border-color: #ccc;
+            background-color: #fff;
+        }
+        #product-list div img{
+            width: 200px;
+            height: 100px;
+
+        }
+    </style>
+</head>
+<body>
+     <div class="product-list" id="product-list">
+    <!-- Products will be rendered here -->
+  </div>
+    
+</body>
+</html>
+<script>
+    const list=document.getElementById("product-list");
+    list.style="width:1500px;height:auto;display:flex;flex-wrap:wrap;gap:20px;justify-content:flex-start;align-items:flex-start";
+    function display(){
+        let display=JSON.parse(localStorage.getItem("products")) || [];
+             display.forEach(ele => {
+            let card=document.createElement("div");
+            card.class="product-class";
+            card.id="card";
+            card.innerHTML=`
+            <img src="${ele.image}"/>
+            <h1>${ele.name}</h1>
+            <p>${ele.category}</p>
+            <p>${ele.gender}</p>
+            <p>${ele.price}</p>
+            <button class="remove">remove</button>
+            <button class="sold" style="background-color:${ele.sold ? "red":"green"}">${ele.sold}</button>
+            `;
+          list.append(card);
+
+        });
+}
+    list.addEventListener("click",function(e){
+        if(e.target.classList.contains("remove")){
+            
+             let products=JSON.parse(localStorage.getItem("products"));
+             let productName=e.target.parentElement.querySelector("h1").textContent;
+            let updatedArray=products.filter(ele => ele.name!==productName);
+       // localStorage.setItem("products",JSON.stringify(updatedArray));
+        list.innerHTML="";
+        location.reload();
+        localStorage.setItem("products",JSON.stringify(updatedArray));
+    }
+     if(e.target.classList.contains("sold")){
+         let productName=e.target.parentElement.querySelector("h1").textContent;
+            let products=JSON.parse(localStorage.getItem("products"));
+            let updatedArray=products.map(product=>{
+                if(product.name===productName){
+                    product.sold=!product.sold;
+                }
+                 return product;
+            });
+        list.innerHTML="";
+        localStorage.setItem("products",JSON.stringify(updatedArray));
+        location.reload();
+
+        }
+});
+        display();
+
+</script>

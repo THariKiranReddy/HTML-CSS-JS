@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    let amr={
+        name:"Amar",
+
+
+    };
+    let akb={
+        name:"akbar",
+    };
+    let ant={
+        name:"anthony",
+    };
+    function Singer(gitar,piyano,dol){
+        this.gitar=gitar;
+        this.piyano=piyano;
+        this.dol=dol;
+    }
+    function Chef(Dosa,Chicken,Roti){
+        this.Dosa=Dosa;
+        this.Chicken=Chicken;
+        this.Roti=Roti;
+    }
+    function Magician(Bird,Rabbit,Mouse){
+        this.Bird=Bird;
+        this.Rabbit=Rabbit;
+        this.Mouse=Mouse;
+    }
+    Singer.call(amr,"gitar","piyano","dol");
+    Chef.call(amr,"Dosa","Chicken","Roti");
+    Magician.call(amr,"Bird","Rabbit","Mouse");
+    Singer.call(akb,"gitar","piyano","dol");
+    Chef.call(akb,"Dosa","Chicken","Roti");
+    Magician.call(akb,"Bird","Rabbit","Mouse");
+    Singer.call(ant,"gitar","piyano","dol");
+    Chef.call(ant,"Dosa","Chicken","Roti");
+    Magician.call(ant,"Bird","Rabbit","Mouse");
+    console.log(amr);
+    console.log(akb);
+    console.log(ant);
+
+    
+</script>
