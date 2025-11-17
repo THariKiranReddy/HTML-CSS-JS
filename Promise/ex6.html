@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+     let promiseOne=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("Data A");
+        },1000);
+    });
+    let promiseTwo=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            reject("Error B");
+        },1000);
+    });
+    let promiseThree=new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("Data C");
+        },1000);
+    });
+    Promise.allSettled([promiseOne,promiseTwo,promiseThree]).then((result)=>{
+        result.forEach((result,index)=>{
+            if(result.status==="fulfilled"){
+                console.log(`Promise ${index+1}: Status=${result.status}, Value=${result.value}`);
+            }
+            else{
+                console.log(`Promise ${index+1}: Status=${result.status}, Value=${result.reason}`);
+            }
+
+        });
+
+    });
+</script>
