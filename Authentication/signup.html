@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup page</title>
+</head>
+<body>
+    <form>
+        <div>
+        <input type="text" id="name" placeholder="enter name">
+        <div>
+            <input type="email" id="email" placeholder="enter email">
+            <input type="password" id="password" autocomplete="on" placeholder="enter password">
+        </div>
+        <button type="button" id="button">Sign-Up</button>
+    </div>
+     <a href="./signin.html">Sign-In</a>
+
+    </form>
+</body>
+</html>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  // https://firebase.google.com/docs/web/setup#available-libraries
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyDMHV-6aUGsdUCGEA1t15Z0ezMXKJcxNhU",
+    authDomain: "web-authentication-97459.firebaseapp.com",
+    projectId: "web-authentication-97459",
+    storageBucket: "web-authentication-97459.firebasestorage.app",
+    messagingSenderId: "485460488375",
+    appId: "1:485460488375:web:a6b310be859ee2b594dd32"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+ import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-database.js";
+ document.getElementById("button").addEventListener("click",function(){
+    let email=document.getElementById("email").value;
+ let password=document.getElementById("password").value;
+ let name=document.getElementById("name").value;
+const auth = getAuth(app);
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    const db = getDatabase();
+    set(ref(db, 'users/' + user.uid), {
+    name: name,
+    email: email,
+    password:password,
+  });
+  alert("user login successfully");
+  console.log(user);
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+  });
+ });
+</script>
