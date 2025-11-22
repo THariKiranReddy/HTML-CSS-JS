@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function TATA(){
+        this.Brand="TATA";
+       this.TypeOfCompany="Automobiles";
+    }
+    TATA.prototype.price="1cr";
+    function Model(CarName,color,Technology){
+        this.CarName=CarName;
+        this.color=color;
+        this.Technology=Technology;
+    }
+    Model.prototype.year="2025";
+    let newModels=new Model("Rover","white","Advanced");
+    Object.setPrototypeOf(TATA.prototype,Model.prototype);
+    console.log(newModels);
+    let obj=new TATA();
+    console.log(obj.hasOwnProperty("Brand"));
+</script>
